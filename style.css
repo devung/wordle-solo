@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #121213;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+h4 {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.main-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    width: 100%;
+    gap: 1rem;
+}
+
+.game-area {
+    max-width: 400px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.cell {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 2px solid #3a3a3c;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: #121213;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell.correct {
+    background-color: #538d4e;
+    border-color: #538d4e;
+}
+
+.cell.present {
+    background-color: #b59f3b;
+    border-color: #b59f3b;
+}
+
+.cell.absent {
+    background-color: #3a3a3c;
+    border-color: #3a3a3c;
+}
+
+#message {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#new-game {
+    display: none;
+    margin: 1rem auto;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #538d4e;
+    color: white;
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    align-items: center;
+    width: 100%;
+}
+
+.keyboard .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+}
+
+.keyboard button {
+    padding: 0.6rem 0.4rem;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    background: #121213;
+    color: white;
+    border: 1px solid #3a3a3c;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1 1 auto;
+    max-width: 10%;
+    min-width: 2rem;
+    text-align: center;
+    touch-action: manipulation;
+}
+
+.keyboard button[data-action="enter"] {
+    min-width: 3.5rem;
+    background: #538d4e;
+}
+
+.keyboard button[data-action="backspace"] {
+    min-width: 3.5rem;
+    background: #b59f3b;
+}
+
+.correct {
+  background-color: #538d4e !important;
+  color: white !important;
+}
+
+.present {
+  background-color: #b59f3b !important;
+  color: white !important;
+}
+
+.absent {
+  background-color: #3a3a3c !important;
+  color: white !important;
+}
+
+
+.scoreboard {
+    flex: 0 0 220px;
+    max-width: 220px;
+    background: #1d1d1f;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.scoreboard h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+table {
+    width: 100%;
+    max-width: 200px;
+    font-size: 0.8rem;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 4px;
+    border-bottom: 1px solid #333;
+}
+
+#total {
+    text-align: right;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .scoreboard {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+
+    #new-game {
+        font-size: 1.1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .keyboard button {
+        padding: 0.8rem 0.5rem;
+        font-size: 1.2rem;
+    }
+}
